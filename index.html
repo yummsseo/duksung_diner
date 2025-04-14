@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>덕성여대 주변 맛집</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+   <!-- 헤더 제목 작성-->
+  <header>
+    <h1>덕성여대 주변 맛집 추천</h1>
+  </header>
+
+  <!--페이지 목차 작성. 순서없는 ul를 사용하여 작성-->
+  <h3>페이지 목차</h3>
+  <ul>
+    <li><a href="#intro">페이지 개요</a></li>
+    <li><a href="#list">덕성여대 맛집 목록</a></li>
+    <li><a href="#details">맛집 상세 정보</a></li>
+  </ul>
+
+  <!--경계선표시-->
+  <hr>
+
+  <!--웹 페이지에 대한 소개 + mark를 사용한 주소 강조-->
+  <h2 id="intro">개요</h2>
+  <p>덕성여자대학교는 <mark>서울 도봉구 삼양로144길 33</mark>에 있습니다.<br>
+  주변에 맛있는 음식점이 있습니다.<br>
+  졸업하기 전까지 많은 곳을 가보고 싶습니다.</p>
+
+  <!--경계선표시-->
+  <hr>
+
+  <!--맛집 목록을 순서로 표시. 클릭하면 상세페이지로 이동할 수 있도록 -->
+  <!--맛집목록을 가져온 사이트(다이닝코드) 표시-->
+  <h2 id="restaurant_list">
+    덕성여대 맛집 목록(from. <a href="https://www.diningcode.com/list.dc?query=%EB%8D%95%EC%84%B1%EC%97%AC%EB%8C%80"  target="_blank">다이닝코드</a>)
+  </h2>
+  <ol type="1">
+    <li><a href="./pages/place1.html" title="링크를 클릭하시면 미성반점 상세페이지로 이동합니다.">미성반점 419</a></li>
+    <li><a href="./pages/place2.html" title="링크를 클릭하시면 춘천막국수 상세페이지로 이동합니다">춘천막국수</a></li>
+    <li><a href="./pages/place3.html" title="링크를 클릭하시면 궁전회관 상세페이지로 이동합니다.">궁전회관 수유</li>
+    <li><a href="./pages/place4.html" title="링크를 클릭하시면 히피스베이글 상세페이지로 이동합니다.">히피스베이글 덕성여대</a></li>
+    <li><a href="./pages/place5.html" title="링크를 클릭하시면 마포감자국 상세페이지로 이동합니다.">마포감자국 수유</a></li>
+    <li><a href="./pages/place6.html" title="링크를 클릭하시면 예와손만두 상세페이지로 이동합니다.">예와손만두 419</a></li>
+  </ol>
+  <hr>
+
+  <!--table만들기-->
+  <main>
+    <section>
+      <h2>맛집 목록</h2>
+      <table>
+        <thead>
+          <tr>
+            <!--상위 행 표 만들기-->
+            <th>사진</th>
+            <th>이름</th>
+            <th>분류</th>
+            <th>주소</th>
+            <th>바로가기</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="pages/place1.html"><img src="media/place1.jpg" alt="미성반점"></a></td>
+            <td>미성반점</td>
+            <td>중식</td>
+            <td>서울 도봉구 삼양로144길 26</td>
+            <td><a href="pages/place1.html">상세보기</a></td>
+          </tr>
+          <tr>
+            <td><a href="pages/place2.html"><img src="media/place2.jpg" alt="춘천막국수"></a></td>
+            <td>춘천막국수</td>
+            <td>막국수</td>
+            <td>서울특별시 강북구 삼양로141길 4-4</td>
+            <td><a href="pages/place2.html">상세보기</a></td>
+          </tr>
+          <tr>
+            <td><a href="pages/place3.html"><img src="media/place3.jpg" alt="궁전회관"></a></td>
+            <td>궁전회관</td>
+            <td>기사식당</td>
+            <td>서울특별시 강북구 한천로 1159 1층</td>
+            <td><a href="pages/place3.html">상세보기</a></td>
+          </tr>
+          <tr>
+            <td><a href="pages/place4.html"><img src="media/place4.jpg" alt="히피스베이글"></a></td>
+            <td>히피스베이글</td>
+            <td>빵</td>
+            <td>서울특별시 강북구 삼양로 528 1층</td>
+            <td><a href="pages/place4.html">상세보기</a></td>
+          </tr>
+          <tr>
+            <td><a href="pages/place5.html"><img src="media/place5.jpg" alt="마포감자국"></a></td>
+            <td>마포감자국</td>
+            <td>감자탕</td>
+            <td>서울특별시 강북구 한천로 1158 1층</td>
+            <td><a href="pages/place5.html">상세보기</a></td>
+          </tr>
+          <tr>
+            <td><a href="pages/place6.html"><img src="media/place6.jpg" alt="예와 손만두"></a></td>
+            <td>예와 손만두</td>
+            <td>만두</td>
+            <td>서울특별시 강북구 4.19로 40-8</td>
+            <td><a href="pages/place6.html">상세보기</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+  
+  <!--footer 이용하여 꼬리말 영역 나타나게 하기-->
+  <footer>
+    <p>2025기준 덕성여대 맛집</p>
+  </footer>
+</body>
+</html>
