@@ -10,10 +10,9 @@
       padding : 8px;
       width : 400px;
       margin : 0 auto;
-      
     }
 
-    .form-container {
+    .container {
       display: flex;
       justify-content: center;
       margin-top: 30px;
@@ -64,66 +63,90 @@
     }
   </style>
 </head>
+<script>
+  function submitForm(event) {
+    event.preventDefault();
+    const form = document.forms["form_name"];
+    const email = form.email.value;
+    const name = form.name.value;
+    const study = form.study.value;
+    
+    // 여러 개 선택될 수 있는 체크박스는 배열로 처리
+    const foodElements = form.querySelectorAll('input[name="food"]:checked');
+    const food = Array.from(foodElements).map(el => el.value).join(", ");
+    
+    const satisfaction = form.satisfaction.value;
+    const favorite_music = form.favorite_music.value;
+    const comment = form.comment.value;
+
+    fetch("https://script.google.com/macros/s/AKfycbwBfTHYH3anuyuQxfHlGGMvZ4H03C25nVzDb0B77ugwO9XB9GGeNUfIRxINr4Tl1EPV/exec", {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: `email=${encodeURIComponent(email)}&name=${encodeURIComponent(name)}&study=${encodeURIComponent(study)}&food=${encodeURIComponent(food)}&satisfaction=${encodeURIComponent(satisfaction)}&favorite_music=${encodeURIComponent(favorite_music)}&comment=${encodeURIComponent(comment)}`
+    }).then(response => {
+      alert("정보가 성공적으로 전송되었습니다!");
+    }).catch(error => {
+      alert("전송 실패: " + error.message);
+    });
+  }
+</script>
+
 <body>
-
   <h2>신윤서의 폼 입력</h2>
-  <div class="form-container">
-    <form>
-      <!-- 한 줄 텍스트 -->
-      <label for="name">이름</label>
-      <input type="text" id="name" name="name" placeholder="예: 노정의" required>
-      <hr>
+  <div class="container">
+    <div id="form">
+      <form id="form_id" name="form_name" action="https://script.google.com/macros/s/AKfycbwBfTHYH3anuyuQxfHlGGMvZ4H03C25nVzDb0B77ugwO9XB9GGeNUfIRxINr4Tl1EPV/exec" method="POST" onsubmit="submitForm(event)">
 
-      <!-- 이메일 형식 검사 -->
-      <label for="email">이메일</label>
-      <input type="email" id="email" name="email" placeholder="예: duksunguniv@duksung.ac.kr" required>
-      <hr>
+        <label for="name">이름</label>
+        <input type="text" id="name" name="name" placeholder="예: 노정의" required>
+        <hr>
 
-      <!-- 데이터 목록 입력 -->
-      <label for="study">나아가고 싶은 분야</label>
-      <input list="study-list" id="study" name="study" placeholder="예: 인공지능">
-      <datalist id="study-list">
-        <option value="인공지능">
-        <option value="빅데이터">
-        <option value="정보보안">
-        <option value="앱/앱 개발">
-      </datalist>
-      <hr>
+        <label for="email">이메일</label>
+        <input type="email" id="email" name="email" placeholder="예: duksunguniv@duksung.ac.kr" required>
+        <hr>
 
-      <!-- 체크박스 -->
-      <label>학식에서 가장 맛있는 음식은 무엇인가요?(중복 가능)</label>
-      <label><input type="checkbox" name="food" value="마라탕">마라탕</label>
-      <label><input type="checkbox" name="food" value="쌀국수">쌀국수</label>
-      <label><input type="checkbox" name="food" value="돈까스">돈까스</label>
-      <label><input type="checkbox" name="food" value="오늘의 메뉴A/B">오늘의 메뉴A/B</label>
-      <hr>
+        <label for="study">나아가고 싶은 분야</label>
+        <input list="study-list" id="study" name="study" placeholder="예: 인공지능">
+        <datalist id="study-list">
+          <option value="인공지능">
+          <option value="빅데이터">
+          <option value="정보보안">
+          <option value="앱/앱 개발">
+        </datalist>
+        <hr>
 
-      <!-- 라디오버튼 -->
-      <label>1학기 시간표(수업시간)가 만족스러우신가요?</label>
-      <label><input type="radio" name="satisfaction" value="만족">만족</label>
-      <label><input type="radio" name="satisfaction" value="보통">보통</label>
-      <label><input type="radio" name="satisfaction" value="불만족">불만족</label>
-      <hr>
+        <label>학식에서 가장 맛있는 음식은 무엇인가요?(중복 가능)</label>
+        <label><input type="checkbox" name="food" value="마라탕">마라탕</label>
+        <label><input type="checkbox" name="food" value="쌀국수">쌀국수</label>
+        <label><input type="checkbox" name="food" value="돈까스">돈까스</label>
+        <label><input type="checkbox" name="food" value="오늘의 메뉴A/B">오늘의 메뉴A/B</label>
+        <hr>
 
-      <!-- 콤보박스 -->
-      <label for="favorite-music">가장 좋아하는 음악</label>
-      <select id="favorite-subject" name="favorite-music">
-        <option value="">--선택--</option>
-        <option value="팝송">팝송</option>
-        <option value="가요">가요</option>
-        <option value="트로트">트로트</option>
-      </select>
-      <hr>
+        <label>1학기 시간표(수업시간)가 만족스러우신가요?</label>
+        <label><input type="radio" name="satisfaction" value="만족">만족</label>
+        <label><input type="radio" name="satisfaction" value="보통">보통</label>
+        <label><input type="radio" name="satisfaction" value="불만족">불만족</label>
+        <hr>
 
-      <!-- (7) 여러 줄 텍스트 -->
-      <label for="comment">하고 싶은 말</label>
-      <textarea id="comment" name="comment" rows="4" placeholder="이 제출 폼의 완성도에 대해 이야기해주세요."></textarea>
-      <hr>
+        <label for="favorite_music">가장 좋아하는 음악</label>
+        <select id="favorite_music" name="favorite_music">
+          <option value="">--선택--</option>
+          <option value="팝송">팝송</option>
+          <option value="가요">가요</option>
+          <option value="트로트">트로트</option>
+        </select>
+        <hr>
 
-      <!-- 제출 버튼 -->
-      <button type="submit">제출하기</button>
-    </form>
+        <label for="comment">하고 싶은 말</label>
+        <textarea id="comment" name="comment" rows="4" placeholder="이 제출 폼의 완성도에 대해 이야기해주세요."></textarea>
+        <hr>
+
+        <button type="submit">제출하기</button>
+      </form>
+    </div>
   </div>
-
 </body>
 </html>
