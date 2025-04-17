@@ -16,7 +16,7 @@
 - 이메일 2 : yummsseo@duksung.ac.kr
 - GitHub 프로필 : https://github.com/yummsseo
 
-##✅ 프로젝트 정보
+## ✅ 프로젝트 정보
 
 **과목**: 인터넷 기초
 **프로젝트명**: 덕성여대 주변 맛집 정보
